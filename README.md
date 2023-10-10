@@ -1,16 +1,5 @@
-# flutter_responsive_login_ui
+# Proyecto SSR (Sabores de Santa Rosa)
 
-A new Flutter project.
+Proyecto que consta en una aplicación móvil para dar solución a una problemática a nuestro cliente. Los estudiantes responsables de llevar a cabo este proyecto son: Ignacio Aguirre y Benjamín Gonzalez. Estudiantes de ingeniería en informática de la universidad autonoma de Chile, sede Talca.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Futuras instrucciones acerca de la aplicación
