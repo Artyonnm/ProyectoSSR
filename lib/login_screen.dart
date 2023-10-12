@@ -24,7 +24,7 @@ class LoginScreen extends StatelessWidget {
               ),
               SizedBox(height: 20),
               const Text(
-                'Sabores de Santa Rosa',
+                'Nacho weko aguante el Colo',
                 style: TextStyle(
                   fontFamily: 'cursive',
                   fontSize: 40,
