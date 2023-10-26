@@ -1,3 +1,4 @@
+import 'package:appprueba/pages/Inicio.dart';
 import 'package:appprueba/pages/detail.dart';
 import 'package:appprueba/pallete.dart';
 import 'package:flutter/material.dart';
@@ -42,6 +43,18 @@ class _StockProductosState extends State<StockProductos> {
           fontFamily: '',
           fontSize: 25,
           color: Colors.white,
+        ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const InicioInv(
+                        username: '',
+                      )),
+            );
+          },
         ),
       ),
       body: FutureBuilder<List<dynamic>>(

@@ -12,6 +12,7 @@ class _AgregarProductoState extends State<AgregarProducto> {
   TextEditingController controllerCantidad = TextEditingController();
 
   var _formKey = GlobalKey<FormState>();
+  List<String> productosIngresados = [];
 
   void addData2() {
     var url = Uri.parse("http://192.168.1.2/tienda/adddata.php");
@@ -21,6 +22,9 @@ class _AgregarProductoState extends State<AgregarProducto> {
       "descripcion": controllerDescripcion.text,
       "tamano": controllerTamano.text,
       "cantidad": controllerCantidad.text,
+    });
+    setState(() {
+      productosIngresados.add(controllerDescripcion.text);
     });
   }
 
@@ -34,11 +38,11 @@ class _AgregarProductoState extends State<AgregarProducto> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Row(
                 children: [
                   IconButton(
-                    icon: Icon(Icons.arrow_back),
+                    icon: const Icon(Icons.arrow_back),
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
@@ -54,7 +58,7 @@ class _AgregarProductoState extends State<AgregarProducto> {
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               const Text(
                 'Descripción',
                 style: TextStyle(
@@ -62,7 +66,7 @@ class _AgregarProductoState extends State<AgregarProducto> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
@@ -109,11 +113,11 @@ class _AgregarProductoState extends State<AgregarProducto> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Container(
                           width: 100,
                           child: TextFormField(
-                            style: TextStyle(fontSize: 16),
+                            style: const TextStyle(fontSize: 16),
                             controller: controllerTamano,
                             validator: (value) {
                               if (value!.isEmpty) {
@@ -146,12 +150,12 @@ class _AgregarProductoState extends State<AgregarProducto> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Container(
                           width: 100,
                           child: TextFormField(
                             keyboardType: TextInputType.number,
-                            style: TextStyle(fontSize: 16),
+                            style: const TextStyle(fontSize: 16),
                             controller: controllerCantidad,
                             validator: (value) {
                               if (value!.isEmpty) {
@@ -171,21 +175,94 @@ class _AgregarProductoState extends State<AgregarProducto> {
                       ],
                     ),
                   ),
-                  SizedBox(width: 20),
+                  const SizedBox(width: 20),
                   ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         addData2();
-                        Navigator.pop(context);
+                        controllerDescripcion.clear();
+                        controllerTamano.clear();
+                        controllerCantidad.clear();
                       }
                     },
                     child: const Icon(Icons.add),
                   ),
                 ],
               ),
+              const SizedBox(height: 20),
+              const Text(
+                'Productos Ingresados',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: productosIngresados.length,
+                  itemBuilder: (context, index) {
+                    return ProductoIngresadoItem(
+                      descripcion: productosIngresados[index],
+                    );
+                  },
+                ),
+              ),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class ProductoIngresadoItem extends StatelessWidget {
+  final String descripcion;
+
+  ProductoIngresadoItem({required this.descripcion});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(descripcion),
+      trailing: ElevatedButton(
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                title: const Text('Detalles del Producto'),
+                content: Text('Descripción: $descripcion'),
+                actions: [
+                  Container(
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: <Color>[
+                          Color.fromARGB(78, 3, 208, 226),
+                          Color.fromARGB(255, 65, 178, 184),
+                          Color.fromARGB(255, 113, 131, 135),
+                        ],
+                        begin: Alignment.bottomLeft,
+                        end: Alignment.topRight,
+                      ),
+                    ),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        fixedSize: const Size(395, 60),
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                      ),
+                      child: const Text('Cerrar'),
+                    ),
+                  ),
+                ],
+              );
+            },
+          );
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }
