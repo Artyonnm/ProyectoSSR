@@ -1,4 +1,5 @@
 import 'package:appprueba/main.dart';
+import 'package:appprueba/pallete.dart';
 import 'package:flutter/material.dart';
 
 class RecuperarContrasena extends StatelessWidget {
@@ -7,6 +8,15 @@ class RecuperarContrasena extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Pallete.backgroundColor,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pushReplacementNamed(context, '/LoginPage');
+          },
+        ),
+      ),
       body: ListView(
         padding: const EdgeInsets.symmetric(
           horizontal: 30.0,
@@ -20,7 +30,6 @@ class RecuperarContrasena extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           const Center(
-            // Centra el texto "Sabores de Santa Rosa"
             child: Text(
               'Recuperar contraseña',
               style: TextStyle(

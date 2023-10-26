@@ -1,3 +1,4 @@
+import 'package:appprueba/pallete.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -45,6 +46,15 @@ class _RegistroUsuariosState extends State<RegistroUsuarios> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Pallete.backgroundColor,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pushReplacementNamed(context, '/LoginPage');
+          },
+        ),
+      ),
       body: ListView(
         padding: const EdgeInsets.symmetric(
           horizontal: 30.0,
