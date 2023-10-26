@@ -31,10 +31,10 @@ class _EditDataState extends State<EditData> {
   Widget build(BuildContext context) {
     controllerDescripcion =
         TextEditingController(text: widget.list[widget.index]['descripcion']);
-    controllerCantidad =
-        TextEditingController(text: widget.list[widget.index]['cantidad']);
     controllerTamano =
         TextEditingController(text: widget.list[widget.index]['tamano']);
+    controllerCantidad =
+        TextEditingController(text: widget.list[widget.index]['cantidad']);
 
     return Scaffold(
       appBar: AppBar(
@@ -56,7 +56,7 @@ class _EditDataState extends State<EditData> {
                 ListTile(
                   leading: const Icon(
                     Icons.description,
-                    color: Colors.black,
+                    color: Color.fromARGB(255, 255, 255, 255),
                   ),
                   title: TextFormField(
                     controller: controllerDescripcion,
@@ -78,10 +78,10 @@ class _EditDataState extends State<EditData> {
                     color: Color.fromARGB(255, 255, 255, 255),
                   ),
                   title: TextFormField(
-                    controller: controllerCantidad,
+                    controller: controllerTamano,
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "Ingresa una cantidad";
+                        return "Ingresa una tamaño";
                       }
                       return null;
                     },
@@ -94,16 +94,21 @@ class _EditDataState extends State<EditData> {
                 ListTile(
                   leading: const Icon(
                     Icons.widgets,
-                    color: Colors.black,
+                    color: Color.fromARGB(255, 255, 255, 255),
                   ),
                   title: TextFormField(
-                      controller: controllerTamano,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "Ingresa una tamaño";
-                        }
-                        return null;
-                      }),
+                    controller: controllerCantidad,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Ingresa una cantidad";
+                      }
+                      return null;
+                    },
+                    decoration: const InputDecoration(
+                      hintText: "Cantidad",
+                      labelText: "Cantidad",
+                    ),
+                  ),
                 ),
                 const Divider(
                   height: 1.0,

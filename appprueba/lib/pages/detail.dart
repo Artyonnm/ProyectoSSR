@@ -81,64 +81,82 @@ class _DetailState extends State<Detail> {
         height: 270.0,
         padding: const EdgeInsets.all(20.0),
         child: Card(
-          child: Center(
-            child: Column(
-              children: <Widget>[
-                const Padding(
-                  padding: EdgeInsets.only(top: 30.0),
-                ),
-                Text(
-                  widget.list[widget.index]['descripcion'],
-                  style: const TextStyle(fontSize: 20.0),
-                ),
-                const Divider(),
-                Text(
-                  "tamano : ${widget.list[widget.index]['tamano']}",
-                  style: const TextStyle(fontSize: 18.0),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(top: 30.0),
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                          Colors.green,
-                        ),
-                      ),
-                      onPressed: () => Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (BuildContext context) => EditData(
-                            list: widget.list,
-                            index: widget.index,
+          elevation: 5,
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.white,
+                width: 2.0,
+              ),
+              borderRadius: BorderRadius.circular(10.0),
+              gradient: const LinearGradient(
+                colors: [
+                  Color.fromARGB(255, 2, 32, 56),
+                  Color.fromARGB(255, 20, 133, 181)
+                ], // Colores del degradado
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+            ),
+            child: Center(
+              child: Column(
+                children: <Widget>[
+                  const Padding(
+                    padding: EdgeInsets.only(top: 30.0),
+                  ),
+                  Text(
+                    widget.list[widget.index]['descripcion'],
+                    style: const TextStyle(fontSize: 20.0),
+                  ),
+                  const Divider(),
+                  Text(
+                    "tamaño : ${widget.list[widget.index]['tamano']}",
+                    style: const TextStyle(fontSize: 18.0),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 30.0),
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                            Colors.green,
                           ),
                         ),
-                      ),
-                      child: const Text(
-                        "Editar",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                    ),
-                    ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                          const Color.fromARGB(233, 255, 2, 2),
+                        onPressed: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (BuildContext context) => EditData(
+                              list: widget.list,
+                              index: widget.index,
+                            ),
+                          ),
+                        ),
+                        child: const Text(
+                          "Editar",
+                          style: TextStyle(color: Colors.white),
                         ),
                       ),
-                      onPressed: () => confirmar(),
-                      child: const Text(
-                        "Eliminar",
-                        style: TextStyle(color: Colors.white),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 10.0, right: 10.0),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                            const Color.fromARGB(233, 255, 2, 2),
+                          ),
+                        ),
+                        onPressed: () => confirmar(),
+                        child: const Text(
+                          "Eliminar",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
