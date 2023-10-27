@@ -40,8 +40,8 @@ class _StockProductosState extends State<StockProductos> {
         backgroundColor: Pallete.backgroundColor,
         title: const Text("Stock de productos"),
         titleTextStyle: const TextStyle(
-          fontFamily: '',
-          fontSize: 25,
+          fontFamily: 'Lora',
+          fontSize: 20,
           color: Colors.white,
         ),
         leading: IconButton(
@@ -114,6 +114,7 @@ class ItemList extends StatelessWidget {
                     Text(
                       list[i]['descripcion'],
                       style: const TextStyle(
+                        fontFamily: 'Lora',
                         fontSize: 25.0,
                         color: Colors.white,
                       ),
@@ -131,6 +132,7 @@ class ItemList extends StatelessWidget {
                         Text(
                           "-Tamaño: ${list[i]['tamano']}",
                           style: const TextStyle(
+                            fontFamily: 'Lora',
                             fontSize: 20.0,
                             color: Colors.white,
                           ),
@@ -139,6 +141,7 @@ class ItemList extends StatelessWidget {
                         Text(
                           "- Cantidad: ${list[i]['cantidad']}",
                           style: const TextStyle(
+                            fontFamily: 'Lora',
                             fontSize: 20.0,
                             color: Colors.white,
                           ),

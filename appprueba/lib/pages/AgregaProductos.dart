@@ -51,8 +51,8 @@ class _AgregarProductoState extends State<AgregarProducto> {
                   const Text(
                     'Agregar Productos',
                     style: TextStyle(
-                      fontFamily: '',
-                      fontSize: 30,
+                      fontFamily: 'Lora',
+                      fontSize: 20,
                       color: Colors.white,
                     ),
                   ),
@@ -62,6 +62,7 @@ class _AgregarProductoState extends State<AgregarProducto> {
               const Text(
                 'Descripción',
                 style: TextStyle(
+                  fontFamily: 'Lora',
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
@@ -87,7 +88,10 @@ class _AgregarProductoState extends State<AgregarProducto> {
                   },
                   decoration: const InputDecoration(
                     labelText: 'Descripción del Producto',
-                    labelStyle: TextStyle(fontSize: 16),
+                    labelStyle: TextStyle(
+                      fontSize: 16,
+                      fontFamily: 'Lora',
+                    ),
                     border: InputBorder.none,
                   ),
                   minLines: 1,
@@ -109,6 +113,7 @@ class _AgregarProductoState extends State<AgregarProducto> {
                         const Text(
                           'Tamaño',
                           style: TextStyle(
+                            fontFamily: 'Lora',
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                           ),
@@ -117,7 +122,10 @@ class _AgregarProductoState extends State<AgregarProducto> {
                         Container(
                           width: 100,
                           child: TextFormField(
-                            style: const TextStyle(fontSize: 16),
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontFamily: 'Lora',
+                            ),
                             controller: controllerTamano,
                             validator: (value) {
                               if (value!.isEmpty) {
@@ -127,7 +135,10 @@ class _AgregarProductoState extends State<AgregarProducto> {
                             },
                             decoration: const InputDecoration(
                               labelText: 'Tamaño',
-                              labelStyle: TextStyle(fontSize: 16),
+                              labelStyle: TextStyle(
+                                fontSize: 16,
+                                fontFamily: 'Lora',
+                              ),
                             ),
                             onSaved: (value) {
                               setState(() {});
@@ -146,6 +157,7 @@ class _AgregarProductoState extends State<AgregarProducto> {
                         const Text(
                           'Cantidad',
                           style: TextStyle(
+                            fontFamily: 'Lora',
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                           ),
@@ -155,7 +167,10 @@ class _AgregarProductoState extends State<AgregarProducto> {
                           width: 100,
                           child: TextFormField(
                             keyboardType: TextInputType.number,
-                            style: const TextStyle(fontSize: 16),
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontFamily: 'Lora',
+                            ),
                             controller: controllerCantidad,
                             validator: (value) {
                               if (value!.isEmpty) {
@@ -165,7 +180,10 @@ class _AgregarProductoState extends State<AgregarProducto> {
                             },
                             decoration: const InputDecoration(
                               labelText: 'Cantidad',
-                              labelStyle: TextStyle(fontSize: 16),
+                              labelStyle: TextStyle(
+                                fontSize: 16,
+                                fontFamily: 'Lora',
+                              ),
                             ),
                             onSaved: (value) {
                               setState(() {});
@@ -193,6 +211,7 @@ class _AgregarProductoState extends State<AgregarProducto> {
               const Text(
                 'Productos Ingresados',
                 style: TextStyle(
+                  fontFamily: 'Lora',
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),

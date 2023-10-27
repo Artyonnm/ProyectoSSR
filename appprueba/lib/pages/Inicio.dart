@@ -35,7 +35,7 @@ class InicioInv extends StatelessWidget {
                 'Bienvenido a Sabores de Santa Rosa',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontFamily: '',
+                  fontFamily: 'Lora',
                   fontSize: 40,
                   color: Color.fromARGB(255, 255, 255, 255),
                 ),
@@ -73,6 +73,7 @@ class InicioInv extends StatelessWidget {
                             'Agregar productos',
                             textAlign: TextAlign.center,
                             style: TextStyle(
+                              fontFamily: 'Lora',
                               fontSize: 16,
                               color: Colors.white,
                             ),
@@ -106,6 +107,7 @@ class InicioInv extends StatelessWidget {
                             'Ventas',
                             textAlign: TextAlign.center,
                             style: TextStyle(
+                              fontFamily: 'Lora',
                               fontSize: 16,
                               color: Colors.white,
                             ),
@@ -144,6 +146,7 @@ class InicioInv extends StatelessWidget {
                             'Ganancias',
                             textAlign: TextAlign.center,
                             style: TextStyle(
+                              fontFamily: 'Lora',
                               fontSize: 16,
                               color: Colors.white,
                             ),
@@ -182,6 +185,7 @@ class InicioInv extends StatelessWidget {
                             'Stock',
                             textAlign: TextAlign.center,
                             style: TextStyle(
+                              fontFamily: 'Lora',
                               fontSize: 16,
                               color: Colors.white,
                             ),
@@ -216,6 +220,7 @@ class InicioInv extends StatelessWidget {
                       Text(
                         'Historial',
                         style: TextStyle(
+                          fontFamily: 'Lora',
                           fontSize: 20,
                           color: Colors.white,
                         ),
@@ -255,6 +260,7 @@ class InicioInv extends StatelessWidget {
                   child: const Text(
                     'Cerrar Sesión',
                     style: TextStyle(
+                      fontFamily: 'Lora',
                       fontWeight: FontWeight.w600,
                       fontSize: 17,
                     ),

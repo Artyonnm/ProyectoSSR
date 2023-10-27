@@ -23,7 +23,13 @@ class _DetailState extends State<Detail> {
 
   void confirmar() {
     AlertDialog alertDialog = AlertDialog(
-      content: const Text("¿Estas seguro que quieres eliminar esto?"),
+      content: const Text(
+        "¿Estas seguro que quieres eliminar esto?",
+        style: TextStyle(
+          color: Colors.white,
+          fontFamily: 'Lora',
+        ),
+      ),
       actions: <Widget>[
         ElevatedButton(
           style: ButtonStyle(
@@ -41,7 +47,10 @@ class _DetailState extends State<Detail> {
           },
           child: const Text(
             "Si, eliminar",
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(
+              color: Colors.white,
+              fontFamily: 'Lora',
+            ),
           ),
         ),
         ElevatedButton(
@@ -53,7 +62,10 @@ class _DetailState extends State<Detail> {
           onPressed: () => Navigator.pop(context),
           child: const Text(
             "Cancelar",
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(
+              color: Colors.white,
+              fontFamily: 'Lora',
+            ),
           ),
         ),
       ],
@@ -72,8 +84,8 @@ class _DetailState extends State<Detail> {
         backgroundColor: Pallete.backgroundColor,
         title: const Text("Producto"),
         titleTextStyle: const TextStyle(
-          fontFamily: '',
-          fontSize: 30,
+          fontFamily: 'Lora',
+          fontSize: 20,
           color: Colors.white,
         ),
       ),
@@ -106,12 +118,18 @@ class _DetailState extends State<Detail> {
                   ),
                   Text(
                     widget.list[widget.index]['descripcion'],
-                    style: const TextStyle(fontSize: 20.0),
+                    style: const TextStyle(
+                      fontSize: 20.0,
+                      fontFamily: 'Lora',
+                    ),
                   ),
                   const Divider(),
                   Text(
                     "tamaño : ${widget.list[widget.index]['tamano']}",
-                    style: const TextStyle(fontSize: 18.0),
+                    style: const TextStyle(
+                      fontSize: 18.0,
+                      fontFamily: 'Lora',
+                    ),
                   ),
                   const Padding(
                     padding: EdgeInsets.only(top: 30.0),
@@ -135,7 +153,10 @@ class _DetailState extends State<Detail> {
                         ),
                         child: const Text(
                           "Editar",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Lora',
+                          ),
                         ),
                       ),
                       const Padding(
@@ -150,7 +171,10 @@ class _DetailState extends State<Detail> {
                         onPressed: () => confirmar(),
                         child: const Text(
                           "Eliminar",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Lora',
+                          ),
                         ),
                       ),
                     ],

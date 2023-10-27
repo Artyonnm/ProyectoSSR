@@ -35,8 +35,8 @@ class RecuperarContrasena extends StatelessWidget {
                 child: Text(
                   'Recuperar contraseña',
                   style: TextStyle(
-                    fontFamily: '',
-                    fontSize: 40,
+                    fontFamily: 'Lora',
+                    fontSize: 35,
                     color: Color.fromARGB(255, 255, 255, 255),
                   ),
                 ),
@@ -46,7 +46,7 @@ class RecuperarContrasena extends StatelessWidget {
                 'Ingresa tu dirección de correo electrónico para recuperar tu contraseña.',
                 style: TextStyle(
                   fontSize: 16,
-                  fontFamily: '',
+                  fontFamily: 'Lora',
                 ),
               ),
               const SizedBox(height: 20),
@@ -92,6 +92,7 @@ class RecuperarContrasena extends StatelessWidget {
                   child: const Text(
                     'Recuperar Contraseña',
                     style: TextStyle(
+                      fontFamily: 'Lora',
                       fontWeight: FontWeight.w600,
                       fontSize: 17,
                       color: Colors.white,

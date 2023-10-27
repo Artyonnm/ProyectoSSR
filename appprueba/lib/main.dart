@@ -69,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
     if (datauser.length == 0) {
       setState(() {
         mensajeUsuario = 'Usuario o contraseña incorrectos';
-        mensajeContrasena = '';
+        mensajeContrasena = 'Usuario o contraseña incorrectos';
         mensaje = '';
       });
     } else {
@@ -99,8 +99,8 @@ class _LoginPageState extends State<LoginPage> {
               const Text(
                 'Sabores de Santa Rosa',
                 style: TextStyle(
-                  fontFamily: 'montserrat',
-                  fontSize: 40,
+                  fontFamily: 'Lora',
+                  fontSize: 35,
                   color: Color.fromARGB(255, 255, 255, 255),
                 ),
               ),
@@ -123,6 +123,7 @@ class _LoginPageState extends State<LoginPage> {
                 Text(
                   mensajeUsuario,
                   style: const TextStyle(
+                    fontFamily: 'Lora',
                     color: Colors.red,
                     fontSize: 16,
                   ),
@@ -145,6 +146,7 @@ class _LoginPageState extends State<LoginPage> {
                 Text(
                   mensajeContrasena,
                   style: const TextStyle(
+                    fontFamily: 'Lora',
                     color: Colors.red,
                     fontSize: 16,
                   ),
@@ -154,6 +156,7 @@ class _LoginPageState extends State<LoginPage> {
                 Text(
                   mensaje,
                   style: const TextStyle(
+                    fontFamily: 'Lora',
                     color: Colors.red,
                     fontSize: 16,
                   ),
@@ -183,6 +186,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: const Text(
                     'Ingresar',
                     style: TextStyle(
+                      fontFamily: 'Lora',
                       fontWeight: FontWeight.w600,
                       fontSize: 17,
                     ),
@@ -221,6 +225,7 @@ class BotonRegistro extends StatelessWidget {
           child: Text(
             'Registro de usuario',
             style: TextStyle(
+              fontFamily: 'Lora',
               fontWeight: FontWeight.w400,
               fontSize: 15,
               color: Color.fromARGB(255, 255, 255, 255),
@@ -253,6 +258,7 @@ class OlvidoContrasena extends StatelessWidget {
           child: Text(
             '¿Olvidó su contraseña?',
             style: TextStyle(
+              fontFamily: 'Lora',
               fontWeight: FontWeight.w400,
               fontSize: 15,
               color: Color.fromARGB(255, 255, 255, 255),

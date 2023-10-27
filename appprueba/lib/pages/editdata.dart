@@ -41,8 +41,8 @@ class _EditDataState extends State<EditData> {
         backgroundColor: Pallete.backgroundColor,
         title: const Text("Editar Producto"),
         titleTextStyle: const TextStyle(
-          fontFamily: '',
-          fontSize: 30,
+          fontFamily: 'Lora',
+          fontSize: 20,
           color: Colors.white,
         ),
       ),

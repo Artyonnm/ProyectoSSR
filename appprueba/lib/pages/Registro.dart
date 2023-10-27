@@ -72,8 +72,8 @@ class _RegistroUsuariosState extends State<RegistroUsuarios> {
               const Text(
                 'Registro de usuario',
                 style: TextStyle(
-                  fontFamily: '',
-                  fontSize: 40,
+                  fontFamily: 'Lora',
+                  fontSize: 35,
                   color: Color.fromARGB(255, 255, 255, 255),
                 ),
               ),
@@ -103,8 +103,9 @@ class _RegistroUsuariosState extends State<RegistroUsuarios> {
                         )),
                     const SizedBox(height: 8),
                     Text(
-                      errorText, // Mostrar mensajes de error
+                      errorText,
                       style: const TextStyle(
+                        fontFamily: 'Lora',
                         color: Colors.red,
                         fontSize: 14.0,
                       ),
@@ -177,6 +178,7 @@ class _RegistroUsuariosState extends State<RegistroUsuarios> {
                         child: const Text(
                           'Registrarse',
                           style: TextStyle(
+                            fontFamily: 'Lora',
                             fontWeight: FontWeight.w600,
                             fontSize: 17,
                           ),
