@@ -99,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
               const Text(
                 'Sabores de Santa Rosa',
                 style: TextStyle(
-                  fontFamily: 'cursive',
+                  fontFamily: '',
                   fontSize: 40,
                   color: Color.fromARGB(255, 255, 255, 255),
                 ),

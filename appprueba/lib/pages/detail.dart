@@ -72,7 +72,7 @@ class _DetailState extends State<Detail> {
         backgroundColor: Pallete.backgroundColor,
         title: const Text("Producto"),
         titleTextStyle: const TextStyle(
-          fontFamily: 'cursive',
+          fontFamily: '',
           fontSize: 30,
           color: Colors.white,
         ),

@@ -51,7 +51,7 @@ class _AgregarProductoState extends State<AgregarProducto> {
                   const Text(
                     'Agregar Productos',
                     style: TextStyle(
-                      fontFamily: 'cursive',
+                      fontFamily: '',
                       fontSize: 30,
                       color: Colors.white,
                     ),

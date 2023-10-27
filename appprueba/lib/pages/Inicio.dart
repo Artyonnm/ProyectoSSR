@@ -35,7 +35,7 @@ class InicioInv extends StatelessWidget {
                 'Bienvenido a Sabores de Santa Rosa',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontFamily: 'cursive',
+                  fontFamily: '',
                   fontSize: 40,
                   color: Color.fromARGB(255, 255, 255, 255),
                 ),

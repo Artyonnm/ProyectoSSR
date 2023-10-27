@@ -58,7 +58,7 @@ class _RegistroUsuariosState extends State<RegistroUsuarios> {
       body: ListView(
         padding: const EdgeInsets.symmetric(
           horizontal: 30.0,
-          vertical: 100,
+          vertical: 30,
         ),
         children: <Widget>[
           Column(
@@ -72,7 +72,7 @@ class _RegistroUsuariosState extends State<RegistroUsuarios> {
               const Text(
                 'Registro de usuario',
                 style: TextStyle(
-                  fontFamily: 'cursive',
+                  fontFamily: '',
                   fontSize: 40,
                   color: Color.fromARGB(255, 255, 255, 255),
                 ),
@@ -101,7 +101,7 @@ class _RegistroUsuariosState extends State<RegistroUsuarios> {
                             borderRadius: BorderRadius.circular(20),
                           ),
                         )),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 8),
                     Text(
                       errorText, // Mostrar mensajes de error
                       style: const TextStyle(
