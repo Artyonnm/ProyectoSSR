@@ -1,6 +1,7 @@
 import 'package:appprueba/main.dart';
 import 'package:appprueba/pages/AgregaProductos.dart';
 import 'package:appprueba/pages/Stock.dart';
+import 'package:appprueba/pages/Ventas.dart';
 import 'package:flutter/material.dart';
 
 const LinearGradient customButtonGradient = LinearGradient(
@@ -85,7 +86,12 @@ class InicioInv extends StatelessWidget {
                   const SizedBox(width: 20),
                   InkWell(
                     onTap: () {
-                      // Redirige a pestaña ventas
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PaginaVentas(),
+                        ),
+                      );
                     },
                     child: Container(
                       width: 175,

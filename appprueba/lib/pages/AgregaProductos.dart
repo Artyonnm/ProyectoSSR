@@ -10,9 +10,11 @@ class _AgregarProductoState extends State<AgregarProducto> {
   TextEditingController controllerDescripcion = TextEditingController();
   TextEditingController controllerTamano = TextEditingController();
   TextEditingController controllerCantidad = TextEditingController();
+  TextEditingController controllerPrecio = TextEditingController();
 
   var _formKey = GlobalKey<FormState>();
   List<String> productosIngresados = [];
+  List<String> cantidadIngresada = [];
 
   void addData2() {
     var url = Uri.parse("http://192.168.1.2/tienda/adddata.php");
@@ -22,9 +24,11 @@ class _AgregarProductoState extends State<AgregarProducto> {
       "descripcion": controllerDescripcion.text,
       "tamano": controllerTamano.text,
       "cantidad": controllerCantidad.text,
+      "precio": controllerPrecio.text,
     });
     setState(() {
       productosIngresados.add(controllerDescripcion.text);
+      cantidadIngresada.add(controllerCantidad.text);
     });
   }
 
@@ -118,7 +122,7 @@ class _AgregarProductoState extends State<AgregarProducto> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        const SizedBox(height: 10),
+                        const SizedBox(height: 15),
                         Container(
                           width: 100,
                           child: TextFormField(
@@ -148,7 +152,7 @@ class _AgregarProductoState extends State<AgregarProducto> {
                       ],
                     ),
                   ),
-                  const SizedBox(width: 20),
+                  const SizedBox(width: 15),
                   Expanded(
                     flex: 1,
                     child: Column(
@@ -193,7 +197,51 @@ class _AgregarProductoState extends State<AgregarProducto> {
                       ],
                     ),
                   ),
-                  const SizedBox(width: 20),
+                  const SizedBox(width: 15),
+                  Expanded(
+                    flex: 1,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Precio',
+                          style: TextStyle(
+                            fontFamily: 'Lora',
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        Container(
+                          width: 100,
+                          child: TextFormField(
+                            keyboardType: TextInputType.number,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontFamily: 'Lora',
+                            ),
+                            controller: controllerPrecio,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Por favor, ingresa el precio';
+                              }
+                              return null;
+                            },
+                            decoration: const InputDecoration(
+                              labelText: 'Precio',
+                              labelStyle: TextStyle(
+                                fontSize: 16,
+                                fontFamily: 'Lora',
+                              ),
+                            ),
+                            onSaved: (value) {
+                              setState(() {});
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                   ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
@@ -201,6 +249,7 @@ class _AgregarProductoState extends State<AgregarProducto> {
                         controllerDescripcion.clear();
                         controllerTamano.clear();
                         controllerCantidad.clear();
+                        controllerPrecio.clear();
                       }
                     },
                     child: const Icon(Icons.add),
@@ -222,6 +271,7 @@ class _AgregarProductoState extends State<AgregarProducto> {
                   itemBuilder: (context, index) {
                     return ProductoIngresadoItem(
                       descripcion: productosIngresados[index],
+                      cantidad: cantidadIngresada[index],
                     );
                   },
                 ),
@@ -236,13 +286,17 @@ class _AgregarProductoState extends State<AgregarProducto> {
 
 class ProductoIngresadoItem extends StatelessWidget {
   final String descripcion;
+  final String cantidad;
 
-  ProductoIngresadoItem({required this.descripcion});
+  ProductoIngresadoItem({
+    required this.descripcion,
+    required this.cantidad,
+  });
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(descripcion),
+      title: Text('$descripcion - $cantidad'),
       trailing: ElevatedButton(
         onPressed: () {
           showDialog(
@@ -250,7 +304,7 @@ class ProductoIngresadoItem extends StatelessWidget {
             builder: (context) {
               return AlertDialog(
                 title: const Text('Detalles del Producto'),
-                content: Text('Descripción: $descripcion'),
+                content: Text('Descripción: $descripcion\nCantidad: $cantidad'),
                 actions: [
                   Container(
                     decoration: const BoxDecoration(

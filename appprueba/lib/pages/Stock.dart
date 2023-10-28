@@ -108,49 +108,64 @@ class ItemList extends StatelessWidget {
             child: Card(
               color: Pallete.backgroundColor,
               child: Title(
-                color: Colors.white,
-                child: Column(
-                  children: [
-                    Text(
-                      list[i]['descripcion'],
-                      style: const TextStyle(
-                        fontFamily: 'Lora',
-                        fontSize: 25.0,
-                        color: Colors.white,
+                  color: Colors.white,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Center(
+                        child: Text(
+                          list[i]['descripcion'],
+                          style: const TextStyle(
+                            fontFamily: 'Lora',
+                            fontSize: 25.0,
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 8),
-                    Row(
-                      children: [
-                        Image.asset(
-                          'assets/images/tarro.png',
-                          width: 38.0,
-                          height: 38.0,
-                          color: Colors.white,
-                        ),
-                        const SizedBox(width: 8),
-                        Text(
-                          "-Tamaño: ${list[i]['tamano']}",
-                          style: const TextStyle(
-                            fontFamily: 'Lora',
-                            fontSize: 20.0,
+                      const SizedBox(height: 8),
+                      Row(
+                        children: [
+                          Image.asset(
+                            'assets/images/tarro.png',
+                            width: 38.0,
+                            height: 38.0,
                             color: Colors.white,
                           ),
-                        ),
-                        const SizedBox(width: 8),
-                        Text(
-                          "- Cantidad: ${list[i]['cantidad']}",
-                          style: const TextStyle(
-                            fontFamily: 'Lora',
-                            fontSize: 20.0,
-                            color: Colors.white,
+                          const SizedBox(width: 8),
+                          Text(
+                            "Tamaño: ${list[i]['tamano']}",
+                            style: const TextStyle(
+                              fontFamily: 'Lora',
+                              fontSize: 20.0,
+                              color: Colors.white,
+                            ),
                           ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
+                          const SizedBox(width: 8),
+                          Text(
+                            "Cantidad: ${list[i]['cantidad']}",
+                            style: const TextStyle(
+                              fontFamily: 'Lora',
+                              fontSize: 20.0,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Precio: \$${list[i]['precio']}",
+                            style: const TextStyle(
+                              fontFamily: 'Lora',
+                              fontSize: 20.0,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  )),
             ),
           ),
         );

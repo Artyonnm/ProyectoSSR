@@ -1,5 +1,4 @@
 import 'package:appprueba/pages/Stock.dart';
-import 'package:appprueba/pages/editdata.dart';
 import 'package:appprueba/pallete.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -24,7 +23,7 @@ class _DetailState extends State<Detail> {
   void confirmar() {
     AlertDialog alertDialog = AlertDialog(
       content: const Text(
-        "¿Estas seguro que quieres eliminar esto?",
+        "¿Estás seguro que quieres eliminar esto?",
         style: TextStyle(
           color: Colors.white,
           fontFamily: 'Lora',
@@ -46,7 +45,7 @@ class _DetailState extends State<Detail> {
             );
           },
           child: const Text(
-            "Si, eliminar",
+            "Sí, eliminar",
             style: TextStyle(
               color: Colors.white,
               fontFamily: 'Lora',
@@ -77,6 +76,11 @@ class _DetailState extends State<Detail> {
     );
   }
 
+  void addToCart() {
+    // Agrega aquí la lógica para agregar el producto al carrito de compras.
+    // Puedes mostrar un mensaje de confirmación o realizar alguna acción adicional.
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,7 +94,7 @@ class _DetailState extends State<Detail> {
         ),
       ),
       body: Container(
-        height: 270.0,
+        height: 200.0,
         padding: const EdgeInsets.all(20.0),
         child: Card(
           elevation: 5,
@@ -105,7 +109,7 @@ class _DetailState extends State<Detail> {
                 colors: [
                   Color.fromARGB(255, 2, 32, 56),
                   Color.fromARGB(255, 20, 133, 181)
-                ], // Colores del degradado
+                ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
@@ -114,7 +118,7 @@ class _DetailState extends State<Detail> {
               child: Column(
                 children: <Widget>[
                   const Padding(
-                    padding: EdgeInsets.only(top: 30.0),
+                    padding: EdgeInsets.only(top: 10.0),
                   ),
                   Text(
                     widget.list[widget.index]['descripcion'],
@@ -125,42 +129,20 @@ class _DetailState extends State<Detail> {
                   ),
                   const Divider(),
                   Text(
-                    "tamaño : ${widget.list[widget.index]['tamano']}",
+                    "Tamaño : ${widget.list[widget.index]['tamano']}",
                     style: const TextStyle(
                       fontSize: 18.0,
                       fontFamily: 'Lora',
                     ),
                   ),
                   const Padding(
-                    padding: EdgeInsets.only(top: 30.0),
+                    padding: EdgeInsets.only(top: 15.0),
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                            Colors.green,
-                          ),
-                        ),
-                        onPressed: () => Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (BuildContext context) => EditData(
-                              list: widget.list,
-                              index: widget.index,
-                            ),
-                          ),
-                        ),
-                        child: const Text(
-                          "Editar",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Lora',
-                          ),
-                        ),
-                      ),
                       const Padding(
-                        padding: EdgeInsets.only(left: 10.0, right: 10.0),
+                        padding: EdgeInsets.only(left: 0.0, right: 10.0),
                       ),
                       ElevatedButton(
                         style: ButtonStyle(
@@ -169,12 +151,45 @@ class _DetailState extends State<Detail> {
                           ),
                         ),
                         onPressed: () => confirmar(),
-                        child: const Text(
-                          "Eliminar",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Lora',
+                        child: const Row(
+                          children: [
+                            Icon(
+                              Icons.delete,
+                              color: Colors.white,
+                            ),
+                            SizedBox(width: 8),
+                            Text(
+                              "Eliminar",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Lora',
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                            Color.fromARGB(233, 51, 187, 51),
                           ),
+                        ),
+                        onPressed: () => addToCart(),
+                        child: const Row(
+                          children: [
+                            Icon(
+                              Icons.shopping_cart,
+                              color: Colors.white,
+                            ),
+                            SizedBox(width: 6),
+                            Text(
+                              "Carrito ",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Lora',
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
