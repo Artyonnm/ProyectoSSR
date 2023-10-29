@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:appprueba/pages/Stock.dart';
 import 'package:http/http.dart' as http;
 
 class AgregarProducto extends StatefulWidget {
