@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:appprueba/pages/Stock.dart';
 import 'package:http/http.dart' as http;
 
 class AgregarProducto extends StatefulWidget {
@@ -18,19 +17,45 @@ class _AgregarProductoState extends State<AgregarProducto> {
   List<String> cantidadIngresada = [];
 
   void addData2() {
-    var url = Uri.parse("http://192.168.1.2/tienda/adddata.php");
+    // Verifica si el producto ya existe en la lista local
+    if (productosIngresados.contains(controllerDescripcion.text) &&
+        cantidadIngresada[
+                productosIngresados.indexOf(controllerDescripcion.text)] ==
+            controllerCantidad.text) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text('Error'),
+            content: const Text(
+                'Este producto ya existe con la misma descripción y cantidad.'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text('Cerrar'),
+              ),
+            ],
+          );
+        },
+      );
+    } else {
+      var url = Uri.parse("http://127.0.0.1/tienda/adddata.php");
 
-    http.post(url, body: {
-      "type": "productos",
-      "descripcion": controllerDescripcion.text,
-      "tamano": controllerTamano.text,
-      "cantidad": controllerCantidad.text,
-      "precio": controllerPrecio.text,
-    });
-    setState(() {
-      productosIngresados.add(controllerDescripcion.text);
-      cantidadIngresada.add(controllerCantidad.text);
-    });
+      http.post(url, body: {
+        "type": "productos",
+        "descripcion": controllerDescripcion.text,
+        "tamano": controllerTamano.text,
+        "cantidad": controllerCantidad.text,
+        "precio": controllerPrecio.text,
+      });
+
+      setState(() {
+        productosIngresados.add(controllerDescripcion.text);
+        cantidadIngresada.add(controllerCantidad.text);
+      });
+    }
   }
 
   @override

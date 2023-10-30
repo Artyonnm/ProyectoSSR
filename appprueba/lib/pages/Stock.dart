@@ -22,7 +22,7 @@ class _StockProductosState extends State<StockProductos> {
   get list => null;
 
   Future<List<dynamic>> getData() async {
-    var url = Uri.parse("http://192.168.1.2/tienda/getdata_productos.php");
+    var url = Uri.parse("http://127.0.0.1/tienda/getdata_productos.php");
     var response = await http.get(url);
 
     if (response.statusCode == 200) {

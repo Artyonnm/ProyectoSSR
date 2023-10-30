@@ -13,7 +13,7 @@ class Detail extends StatefulWidget {
 
 class _DetailState extends State<Detail> {
   void deleteData() {
-    var url = Uri.parse("http://192.168.1.2/tienda/deleteData.php");
+    var url = Uri.parse("http://127.0.0.1/tienda/deleteData.php");
     http.post(url, body: {
       "type": "productos",
       'id': widget.list[widget.index]['id'],
@@ -94,7 +94,7 @@ class _DetailState extends State<Detail> {
         ),
       ),
       body: Container(
-        height: 200.0,
+        height: 210.0,
         padding: const EdgeInsets.all(20.0),
         child: Card(
           elevation: 5,
@@ -128,22 +128,9 @@ class _DetailState extends State<Detail> {
                     ),
                   ),
                   const Divider(),
-                  Text(
-                    "Tamaño : ${widget.list[widget.index]['tamano']}",
-                    style: const TextStyle(
-                      fontSize: 18.0,
-                      fontFamily: 'Lora',
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 15.0),
-                  ),
                   Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      const Padding(
-                        padding: EdgeInsets.only(left: 0.0, right: 10.0),
-                      ),
+                    children: [
+                      const SizedBox(width: 10),
                       ElevatedButton(
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(
@@ -157,17 +144,19 @@ class _DetailState extends State<Detail> {
                               Icons.delete,
                               color: Colors.white,
                             ),
-                            SizedBox(width: 8),
-                            Text(
-                              "Eliminar",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'Lora',
-                              ),
-                            ),
+                            SizedBox(width: 2),
                           ],
                         ),
                       ),
+                      const SizedBox(width: 40),
+                      Text(
+                        "Tamaño: ${widget.list[widget.index]['tamano']}",
+                        style: const TextStyle(
+                          fontSize: 18.0,
+                          fontFamily: 'Lora',
+                        ),
+                      ),
+                      const SizedBox(width: 35),
                       ElevatedButton(
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(
@@ -181,18 +170,22 @@ class _DetailState extends State<Detail> {
                               Icons.shopping_cart,
                               color: Colors.white,
                             ),
-                            SizedBox(width: 6),
-                            Text(
-                              "Carrito ",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'Lora',
-                              ),
-                            ),
+                            SizedBox(width: 2),
                           ],
                         ),
                       ),
                     ],
+                  ),
+                  const Divider(),
+                  Text(
+                    "Cantidad: ${widget.list[widget.index]['cantidad']}",
+                    style: const TextStyle(
+                      fontSize: 18.0,
+                      fontFamily: 'Lora',
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 15.0),
                   ),
                 ],
               ),

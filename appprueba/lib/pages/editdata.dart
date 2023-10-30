@@ -18,7 +18,7 @@ class _EditDataState extends State<EditData> {
   late TextEditingController controllerCantidad;
 
   void editData() {
-    var url = Uri.parse("http://192.168.1.2/tienda/editdata.php");
+    var url = Uri.parse("http://127.0.0.1/tienda/editdata.php");
     http.post(url, body: {
       "type": "productos",
       "descripcion": controllerDescripcion.text,

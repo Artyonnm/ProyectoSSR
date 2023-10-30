@@ -58,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
     }
 
     final response = await http.post(
-      Uri.parse("http://192.168.1.2/tienda/login.php"),
+      Uri.parse("http://10.0.2.2/tienda/login.php"),
       body: {
         "username": controllerUser.text,
         "clave": controllerPass.text,
